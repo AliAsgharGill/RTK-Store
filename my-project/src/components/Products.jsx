@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Navbar from "./Navbar";
 
 const Products = () => {
   const [products, getProducts] = useState([]);
@@ -94,6 +95,7 @@ const Products = () => {
   ));
   return (
     <>
+      <Navbar />
       <div className="p-5">
         <div className="grid grid-cols-4 gap-4 p-3">{cards}</div>
       </div>

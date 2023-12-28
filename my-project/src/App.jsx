@@ -1,6 +1,8 @@
 import "./App.css";
+import Cart from "./components/Cart";
+import Dashboard from "./components/Dashboard";
 import Products from "./components/Products";
-import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -8,8 +10,12 @@ const router = createBrowserRouter([
     element: <Products />,
   },
   {
-    path: "about",
-    element: <div>About</div>,
+    path: "cart",
+    element: <Cart />,
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />,
   },
 ]);
 
