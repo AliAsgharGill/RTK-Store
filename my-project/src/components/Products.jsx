@@ -1,11 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { add } from "../store/cartSlice";
 
 const Products = () => {
   const [products, getProducts] = useState([]);
   const dispatch = useDispatch();
+  const { data: status } = useSelector((state) => state.products);
+  if (status === "loading") {
+    return <h1>Loading...</h1>;
+  }
+  if (status === "error") {
+    return <h1>Something Went Wrong!</h1>;
+  }
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((data) => data.json())
